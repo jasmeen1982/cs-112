@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Registration Page</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Background and Styling */
+        body {
+            background: linear-gradient(to right, #fce4ec, #f8bbd0); /* Gradient Background */
+            font-family: 'Dancing Script', cursive; /* Fancy Font */
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            color: #6a0dad;
+            font-size: 40px;
+            margin-top: 20px;
+        }
+
+        form {
+            background: white;
+            max-width: 500px;
+            margin: 30px auto;
+            padding: 20px;
+            border-radius: 10px; /* Rounded Corners */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Soft Shadow */
+        }
+
+        input {
+            display: block;
+            width: 90%;
+            margin: 10px auto;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 8px; /* Rounded Corners */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Light Shadow */
+        }
+
+        button {
+            background-color: #6a0dad;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+
+        button:hover {
+            background-color: #4a0072;
+            transform: scale(1.05); /* Slight Animation on Hover */
+        }
+
+        #thankYouMessage {
+            display: none;
+            font-size: 18px;
+            color: #6a0dad;
+            margin-top: 20px;
+        }
+    </style>
+    <script>
+        function showThankYouMessage(event) {
+            event.preventDefault(); // Prevent form submission
+            const form = document.querySelector("form");
+            const message = document.getElementById("thankYouMessage");
+
+            // Hide the form and display the thank-you message
+            form.style.display = "none";
+            message.style.display = "block";
+            message.textContent = "Thank you for registering! 🎉";
+        }
+    </script>
+</head>
+<body>
+    <h1>Register Now</h1>
+    <form onsubmit="showThankYouMessage(event)">
+        <input type="text" name="name" placeholder="Enter your full name (e.g., Jane Doe)" required>
+        <input type="email" name="email" placeholder="Enter a valid email (e.g., jane.doe@example.com)" required>
+        <input type="password" name="password" placeholder="Must include 8+ characters, a number, and a special character" required>
+        <button type="submit">Register</button>
+    </form>
+    <p id="thankYouMessage"></p>
+</body>
+</html>

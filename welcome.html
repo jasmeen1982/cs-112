@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Welcome Page</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: #fce4ec; /* Soft Baby Pink */
+            font-family: 'Dancing Script', cursive;
+            text-align: center;
+        }
+        h1 {
+            color: #6a0dad;
+            font-size: 40px;
+        }
+        #welcomeImage {
+            width: 300px;
+            border-radius: 10px;
+            margin-top: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+    <script>
+        window.onload = function() {
+            let username = sessionStorage.getItem("loggedInUser");
+            if (username) {
+                document.getElementById("welcomeText").textContent = `Welcome back, ${username}!`;
+            } else {
+                document.getElementById("welcomeText").textContent = `Welcome back!`;
+            }
+        }
+    </script>
+</head>
+<body>
+    <hr>
+    <div class="container">
+        <h1 id="welcomeText">Welcome back!</h1>
+        <img id="welcomeImage" src="https://thumbs.dreamstime.com/z/kitten-welcome-mat-3579137.jpg" alt="Welcome Kitten" />
+    </div>
+</body>
+</html>

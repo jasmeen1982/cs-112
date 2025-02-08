@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Page</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: #fce4ec; /* Soft Baby Pink */
+            font-family: 'Dancing Script', cursive;
+            text-align: center;
+        }
+        nav {
+            background-color: white;
+            padding: 10px;
+            border-radius: 10px;
+            display: inline-block;
+            margin: 20px auto;
+        }
+        nav a {
+            text-decoration: none;
+            color: black;
+            margin: 0 15px;
+            font-weight: bold;
+        }
+        nav a:hover {
+            color: #6a0dad;
+        }
+        .form-group {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 70%;
+            margin: 10px auto;
+            position: relative;
+        }
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+        }
+        button {
+            background-color: #6a0dad;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #4a0072;
+        }
+        .voice-btn {
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+            position: absolute;
+            right: 10px;
+            font-size: 18px;
+            color: #6a0dad;
+        }
+        .voice-btn:hover {
+            color: #4a0072;
+        }
+        h1, h2 {
+            color: #6a0dad;
+            font-size: 35px;
+        }
+        iframe {
+            display: block;
+            margin: 20px auto;
+            width: 600px;
+            height: 450px;
+            border-radius: 8px;
+        }
+    </style>
+    <script>
+        // JavaScript for Voice Input Feature
+        function startVoiceRecognition(inputId) {
+            const inputField = document.getElementById(inputId);
+            const recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
+            recognition.lang = 'en-US';
+
+            recognition.onresult = function(event) {
+                inputField.value = event.results[0][0].transcript;
+            };
+
+            recognition.start();
+        }
+    </script>
+</head>
+<body>
+    <hr>
+    <div class="container">
+        <h1>Contact Us</h1>
+        <nav>
+            <a href="index.html">Home</a> | 
+            <a href="service.html">Services</a> | 
+            <a href="contact.html">Contact</a> | 
+            <a href="login.html">Login</a> | 
+            <a href="registration.html">Register</a>
+        </nav>
+
+        <h2>Get in Touch</h2>
+        <form action="https://formsubmit.co/jasmeenasad@gmail.com" method="POST">
+            <div class="form-group">
+                <input type="text" id="name" name="name" placeholder="Your Name" required>
+                <button type="button" class="voice-btn" onclick="startVoiceRecognition('name')">🎤</button>
+            </div>
+            <div class="form-group">
+                <input type="email" id="email" name="email" placeholder="Your Email" required>
+            </div>
+            <div class="form-group">
+                <textarea id="message" name="message" placeholder="Your Message" rows="5" required></textarea>
+                <button type="button" class="voice-btn" onclick="startVoiceRecognition('message')">🎤</button>
+            </div>
+            <input type="hidden" name="_captcha" value="false">  <!-- Removes annoying captcha -->
+            <input type="hidden" name="_template" value="table"> <!-- Formats email nicely -->
+            <button type="submit">Send Message</button>
+        </form>
+
+        <h2>Our Location</h2>
+        <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3309.5655363542835!2d-118.46237928478637!3d34.2727958805436!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80c29fe6482bcf91%3A0x9ad107de94ed95cd!2s15321%20Brand%20Blvd%2C%20Mission%20Hills%2C%20CA%2091345%2C%20USA!5e0!3m2!1sen!2sus!4v1674177859451!5m2!1sen!2sus"
+            allowfullscreen="" loading="lazy">
+        </iframe>
+    </div>
+</body>
+</html>
+
